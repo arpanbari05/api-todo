@@ -84,3 +84,11 @@ exports.checkRole = (roleToCheck) =>
 
     next();
   });
+
+exports.getAllUsers = catchAsync(async (req, res, next) => {
+  const users = await userModel.find({});
+
+  res.status(200).json({
+    users,
+  });
+});
